@@ -5,53 +5,65 @@
 layout: default
 ---
 
-<div class="container">
-  <div class="main">
-    <div class="main__logo">
-      <img src="/assets/images/ftto-logo.png" alt="FTTO Logo">
-    </div>
-    <div class="main__content">
-      <h4>우리는 누구?</h4>
-      <p>
-        ftto는 언더씬에서 활동하는 레이블입니다. 돈이 되든
-        돈이 안되든 만들고 싶은걸 만듭니다. 생각에 그치지 않고 그냥
-        만듭니다. 
-        {% for p in site.data.projects %}
-          {% if p.src %}
-            <a href="{{ p.src }}" target="_blank">{{ p.name }}</a>{% if forloop.last == false %}, {% endif %}
-          {% else %}
-            {{ p.name }}{% if forloop.last == false %}, {% endif %}
-          {% endif %}
-        {% endfor %}
-        을 만듭니다. 망원, 뚝섬, 합정 중심으로 활동하고 있으며
-        {% for p in site.data.places %}
-          {% if p.src %}
-            <a href="{{ p.src }}" target="_blank">{{ p.name }}</a>{% if forloop.last == false %}, {% endif %}
-          {% else %}
-            {{ p.name }}{% if forloop.last == false %}, {% endif %}
-          {% endif %}
-        {% endfor %}을 본거지로 삼고 있습니다.
-      </p>
+<div class="row header">
+  <div class="col col-left">
+    <img class="logo" alt="slug image" src="/assets/images/slug.svg" />
+  </div>
+  <div class="col col-right">
+    <img class="logo-text" alt="sluggish hackers" src="/assets/images/logo.svg" />
+    <p class="description">
+      Sluggish Hackers는 게으른 해커들의 네트워크입니다.<br />
+      더 나은 기술이란 미래지향적이고 지금보다 더 빠르게, 남들보다 더 빨리 만들어내야 하는 것이라 믿는 시대에<br />
+      기술이 만들 미래의 모습보다 기술이 남겨놓은 어제와 오늘의 문제들에 더 관심을 가지려고 합니다.<br />
+      다양한 방법으로 해커들을 만나고 협력하기 위한 첫번째 프로젝트, 월간밋업을 소개합니다.<br />
+    </p>
+  </div>
+</div>
 
-      <h4>멤버 소개</h4>
-      <p>
-        {% for m in site.data.members %}
-          <b>{{ m.name }} {{ m.emoji }}</b>&nbsp; &nbsp; {{ m.description }}
-          {% if forloop.last == false %}
-            <br /><br />
-          {% endif %}
+<div class="row meetups">
+  <div class="col col-left">
+    <h2>Meetups</h2>
+  </div>
+  <div class="col col-right">
+    {% for month in site.data.meetups %}
+    <div class="months">
+      <div class="months-month">
+        <h3 class="month-title">{{ month.month }}.</h3>
+      </div>
+      <div class="months-meetups">
+        {% if month.meetups %}
+        {% for m in month.meetups %}
+        <div class="months-meetups-meetup">
+          <h3 class="title">{{ m.title }}</h3>
+          <div class="inner-content">
+            <ul>
+              <li>Date: {{ m.date }}</li>
+              <li>Place: Seoul Nooks</li>
+              <li>Speaker: <a href="{{ m.speaker.link }}">{{ m.speaker.name }}</a></li>
+            </ul>
+            <p class="summary">{{ m.summary }}</p>
+            <a class="btn-attend" href="{{ m.link }}">참석 신청하기</a>
+          </div>
+        </div>
         {% endfor %}
-      </p>
-
-      <h4>연락처</h4>
-      <p>
-        {% for c in site.contacts %}
-          <b>{{ c.name }}</b>&nbsp;&nbsp;<a href="{{ c.link }}" target="_blank">{{ c.label }}</a>
-          {% if forloop.last == false %}
-            <br />
-          {% endif %}
-        {% endfor %}
-      </p>
+        {% else %}
+        <div class="months-meetups-meetup">
+          <h3 class="title">Upcoming</h3>
+        </div>
+        {% endif %}
+      </div>
     </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="row partners">
+  <div class="col col-left">
+    <h2>함께하는 사람들</h2>
+  </div>
+  <div class="col col-right">
+    {% for partner in site.data.partners %}
+    <h3 class="partner">{{ partner.title }} | </h3>
+    {% endfor %}
   </div>
 </div>

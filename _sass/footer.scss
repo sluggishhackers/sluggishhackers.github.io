@@ -1,16 +1,16 @@
 footer {
-  font-family: 'Roboto Mono', 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
   width: 100%;
-  text-align: center;
-  font-size: 10px;
+  text-align: left;
+  font-size: 12px;
   line-height: 2.2;
-  color: #fff;
   padding-top: 100px;
   padding-bottom: 20px;
-}
 
-@media (max-width: 819px) {
-  footer {
-    padding-top: 60px;
+  p {
+    font-family: 'Helvetica Neue';
+  }
+
+  a {
+    color: #000;
   }
 }

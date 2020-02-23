@@ -1,76 +1,135 @@
+$sluggish-width: 48px;
+$sluggish-container-width: 356px;
+
 .container {
-  width: 780px;
+  width: 1408px;
   margin: 0 auto;
-}
-.main {
-  position: relative;
-  padding-top: 100px;
-  padding-left: 160px;
-  min-height: calc(100vh - 242px);
+  padding: 10px;
 
-  > .main__logo {
-    position: absolute;
-    left: 0;
-    top: 100px;
+  .row {
+    display: flex;
+    flex-direction: row;
 
-    > img {
-      max-width: 80px;
-    }
-  }
+    .col.col-left {
+      width: $sluggish-container-width;
 
-  > .main__content {
-    color: #fff;
-
-    > h4 {
-      margin-bottom: 20px;
-      margin-top: 0;
-      font-size: 18px;
-      font-weight: 500;
-      line-height: 1.22;
-    }
-
-    > p {
-      font-size: 16px;
-      line-height: 1.63;
-      margin-bottom: 80px;
-      font-weight: 100;
-
-      > a {
-        color: #fff;
-      }
-
-      &:last-child {
-        margin-bottom: 0;
+      h2 {
+        font-size: 28px;
       }
     }
+
+    .col.col-right {
+      flex: 1;
+    }
+  }
+
+  .header {
+    .col.col-left {
+      position: relative;
+    }
+
+    .logo {
+      position: absolute;
+      right: 100px;
+      width: $sluggish-width;
+      height: $sluggish-width;
+      animation-name: sluggishing;
+      animation-duration: 60s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    .logo-text {
+      width: 320px;
+    }
+  }
+
+  .meetups,
+  .partners {
+    border-top: 1px solid;
+    padding-top: 8px;
+  }
+
+  .meetups {
+    .months {
+      display: flex;
+      flex-direction: row;
+
+      &:not(:first-child) {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        border-top: 1px solid;
+      }
+
+      &-month {
+        width: 356px;
+      }
+
+      &-meetups {
+        flex: 1;
+      }
+
+      &-month {
+        h3.month-title {
+          font-size: 28px;
+          font-weight: normal;
+          text-transform: uppercase;
+        }
+      }
+
+      &-meetups {
+        &-meetup {
+          padding-bottom: 32px;
+
+          h3.title {
+            font-size: 28px;
+          }
+
+          div.inner-content {
+            overflow: hidden;
+          }
+
+          p.summary {
+            white-space: pre-wrap;
+          }
+
+          a.btn-attend {
+            display: block;
+            width: 100%;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-align: center;
+            background-color: black;
+            color: white;
+            padding-top: 14px;
+            padding-bottom: 14px;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  .partners {
+    h3.partner {
+      display: inline;
+      font-size: 28px;
+      font-weight: light;
+    }
   }
 }
 
-@media (max-width: 819px) {
-  .container {
-    width: calc(100% - 40px);
-    padding: 0 20px;
+@keyframes sluggishing {
+  0% {
+    right: $sluggish-container-width - $sluggish-width;
   }
 
-  .main {
-    padding-top: 40px;
-    padding-left: 0;
-    min-height: calc(100vh - 142px);
-  }
-  
-  .main .main__logo {
-    position: relative;
-    margin-bottom: 60px;
-    top: 0;
-  }
-  .main .main__logo img {
-    max-width: 60px;
+  50% {
+    right: 0;
   }
 
-  .main .main__content p {
-    margin-bottom: 40px;
-  }
-  .main .main__content p:last-child {
-    margin-bottom: 0;
+  100% {
+    right: $sluggish-container-width - $sluggish-width;
   }
 }
