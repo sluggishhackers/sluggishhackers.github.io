@@ -2,13 +2,12 @@
   meetups:
     - title: "첫모임 with 갱, 조은, 후니"
       summary: |
-        <Sluggish Hackers>는 비영리 영역 및 시민 사회가 일하는 방식에 기술을 도입하기 위한 방법을 고민합니다.
+        <Sluggish Hackers>는 비영리 조직 및 시민 사회가 게으른 해커들처럼 일할 수 있는 방법을 고민합니다.
       date: 2022-12-10
+      place: 스튜디오로칼
+      placeLink: https://place.map.kakao.com/2103476864
       month: Dec
-      speaker:
-        - name: 갱
-        - name: 조은
-        - name: 후니
+      host: 갱, 조은, 후니
 - month: Jan
 - month: Feb
 - month: Mar
